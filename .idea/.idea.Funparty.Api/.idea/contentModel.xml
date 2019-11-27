@@ -8,7 +8,14 @@
         <e p="Controllers" t="Include">
           <e p="WeatherForecastController.cs" t="Include" />
         </e>
+        <e p="Domain" t="Include">
+          <e p="Entities" t="Include">
+            <e p="Product.cs" t="Include" />
+            <e p="User.cs" t="Include" />
+          </e>
+        </e>
         <e p="Funparty.Api.csproj" t="IncludeRecursive" />
+        <e p="Persistence" t="Include" />
         <e p="Program.cs" t="Include" />
         <e p="Properties" t="Include">
           <e p="launchSettings.json" t="Include" />
