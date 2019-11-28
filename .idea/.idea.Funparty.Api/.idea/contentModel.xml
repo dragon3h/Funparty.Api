@@ -15,7 +15,14 @@
           </e>
         </e>
         <e p="Funparty.Api.csproj" t="IncludeRecursive" />
-        <e p="Persistence" t="Include" />
+        <e p="Migrations" t="Include">
+          <e p="20191128022506_InitialCreate.Designer.cs" t="Include" />
+          <e p="20191128022506_InitialCreate.cs" t="Include" />
+          <e p="FunpartyDbContextModelSnapshot.cs" t="Include" />
+        </e>
+        <e p="Persistence" t="Include">
+          <e p="FunpartyDbContext.cs" t="Include" />
+        </e>
         <e p="Program.cs" t="Include" />
         <e p="Properties" t="Include">
           <e p="launchSettings.json" t="Include" />
