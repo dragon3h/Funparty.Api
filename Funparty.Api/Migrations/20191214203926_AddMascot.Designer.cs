@@ -4,14 +4,16 @@ using Funparty.Api.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Funparty.Api.Migrations
 {
     [DbContext(typeof(FunpartyDbContext))]
-    partial class FunpartyDbContextModelSnapshot : ModelSnapshot
+    [Migration("20191214203926_AddMascot")]
+    partial class AddMascot
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

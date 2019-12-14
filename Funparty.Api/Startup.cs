@@ -24,12 +24,21 @@ namespace Funparty.Api
 
         public IConfiguration Configuration { get; }
 
+        private readonly string FunpartyAllowSpecificOrigins = "_funpartyAllowSpecificOrigins";
+
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<FunpartyDbContext>(opt =>
                 opt.UseSqlServer(Configuration.GetConnectionString("Default")));
             services.AddControllers();
+            
+            // add CORS
+            services.AddCors(options =>
+            {
+                options.AddPolicy(FunpartyAllowSpecificOrigins,
+                    builder => { builder.AllowAnyOrigin(); });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -40,6 +49,8 @@ namespace Funparty.Api
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseCors(FunpartyAllowSpecificOrigins);
+            
             app.UseHttpsRedirection();
 
             app.UseRouting();
