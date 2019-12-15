@@ -1,0 +1,77 @@
+[
+  {
+    "Cattegory": "Giant",
+    "CreatedDate": "2017-07-10T02:16:18 +04:00",
+    "Name": "Levine",
+    "RentPrice": "$131.13",
+    "SalePrice": "$584.85",
+    "Photos": [
+      {
+        "url": "https://randomuser.me/api/portraits/men36jpg",
+        "isMain": true,
+        "Name": "Griffin"
+      }
+    ],
+    "UpdatedDate": "2014-04-01T10:06:48 +04:00"
+  },
+  {
+    "Cattegory": "Helloween",
+    "CreatedDate": "2018-04-01T06:11:32 +04:00",
+    "Name": "Anderson",
+    "RentPrice": "$132.10",
+    "SalePrice": "$629.10",
+    "Photos": [
+      {
+        "url": "https://randomuser.me/api/portraits/men29jpg",
+        "isMain": true,
+        "Name": "Dianna"
+      }
+    ],
+    "UpdatedDate": "2014-09-10T09:34:10 +04:00"
+  },
+  {
+    "Cattegory": "Helloween",
+    "CreatedDate": "2018-02-17T01:47:52 +05:00",
+    "Name": "Cheri",
+    "RentPrice": "$137.64",
+    "SalePrice": "$1,527.24",
+    "Photos": [
+      {
+        "url": "https://randomuser.me/api/portraits/men6jpg",
+        "isMain": true,
+        "Name": "Love"
+      }
+    ],
+    "UpdatedDate": "2016-10-31T11:37:32 +04:00"
+  },
+  {
+    "Cattegory": "Giant",
+    "CreatedDate": "2018-06-26T12:28:20 +04:00",
+    "Name": "Carroll",
+    "RentPrice": "$142.36",
+    "SalePrice": "$383.91",
+    "Photos": [
+      {
+        "url": "https://randomuser.me/api/portraits/men78jpg",
+        "isMain": true,
+        "Name": "Maude"
+      }
+    ],
+    "UpdatedDate": "2019-10-23T05:20:03 +04:00"
+  },
+  {
+    "Cattegory": "Regular",
+    "CreatedDate": "2017-03-03T01:48:42 +05:00",
+    "Name": "Christian",
+    "RentPrice": "$81.02",
+    "SalePrice": "$1,750.34",
+    "Photos": [
+      {
+        "url": "https://randomuser.me/api/portraits/men20jpg",
+        "isMain": true,
+        "Name": "Ola"
+      }
+    ],
+    "UpdatedDate": "2017-09-29T10:57:41 +04:00"
+  }
+]

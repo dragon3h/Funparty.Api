@@ -1,9 +1,9 @@
 using System;
-using Microsoft.AspNetCore.DataProtection;
+using System.Collections.Generic;
 
 namespace Funparty.Api.Domain.Entities
 {
-    public class Mascot
+    public partial class Mascot
     {
         public int Id { get; set; }
         public string Category { get; set; }
@@ -12,5 +12,6 @@ namespace Funparty.Api.Domain.Entities
         public decimal RentPrice { get; set; }
         public decimal SalePrice { get; set; }
         public DateTime? UpdatedDate { get; set; }
+        public ICollection<Photo> Photos { get; set; }
     }
 }

@@ -1,0 +1,20 @@
+[
+  '{{repeat(5)}}',
+  {
+    Cattegory: '{{random("Regular", "Helloween", "Giant")}}',
+      CreatedDate: '{{date(new Date(2014, 0, 1), new Date(), "YYYY-MM-ddThh:mm:ss Z")}}',
+      Name: '{{firstName()}}',
+      RentPrice: '{{floating(50, 200, 2, "$0,0.00")}}',
+      SalePrice: '{{floating(250, 2000, 2, "$0,0.00")}}',
+      Photos: [
+        {
+          url: function(num) {
+            return 'https://randomuser.me/api/portraits/men' + num.integer(1,99) + 'jpg';
+          },
+          isMain: true,
+          Name: '{{firstName()}}'
+        }
+      ],
+      UpdatedDate: '{{date(new Date(2014, 0, 1), new Date(), "YYYY-MM-ddThh:mm:ss Z")}}'
+  }
+]

@@ -1,4 +1,6 @@
 using System.Threading.Tasks;
+using Funparty.Api.Application.Interfaces;
+using Funparty.Api.Domain.Entities;
 using Funparty.Api.Persistence;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -9,19 +11,27 @@ namespace Funparty.Api.Controllers
     [ApiController]
     public class MascotController : ControllerBase
     {
-        private readonly FunpartyDbContext _context;
+        private readonly IMascotRepository _mascotRepository;
 
-        public MascotController(FunpartyDbContext context)
+        public MascotController(IMascotRepository mascotRepository)
         {
-            _context = context;
+            _mascotRepository = mascotRepository;
         }
         
         // GET
         [HttpGet]
         public async Task<IActionResult> GetMascots()
         {
-            var mascots = await _context.Mascots.ToListAsync();
+            var mascots = await _mascotRepository.GetAllMascots();
             return Ok(mascots);
+        }
+        
+        // POST
+        [HttpPost("create")]
+        public async Task<IActionResult> CreateMascot(Mascot mascot)
+        {
+            var newMascot = await _mascotRepository.CreateMascot(mascot);
+            return Ok(newMascot);
         }
     }
 }
