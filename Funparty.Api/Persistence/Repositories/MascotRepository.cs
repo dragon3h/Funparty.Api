@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Funparty.Api.Application.Interfaces;
 using Funparty.Api.Domain.Entities;
@@ -19,6 +20,12 @@ namespace Funparty.Api.Persistence.Repositories
         {
             var mascots = await _context.Mascots.ToListAsync();
             return mascots;
+        }
+
+        public async Task<Mascot> GetMascotById(int id)
+        {
+            var mascot = await _context.Mascots.FirstOrDefaultAsync(m => m.Id == id);
+            return mascot;
         }
 
         public async Task<Mascot> CreateMascot(Mascot mascot)

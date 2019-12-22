@@ -25,6 +25,7 @@ namespace Funparty.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddScoped<IMascotRepository, MascotRepository>();
+            
             services.AddDbContext<FunpartyDbContext>(opt =>
                 opt.UseSqlServer(Configuration.GetConnectionString("Default")));
             services.AddControllers();

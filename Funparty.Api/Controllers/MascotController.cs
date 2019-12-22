@@ -17,7 +17,7 @@ namespace Funparty.Api.Controllers
         {
             _mascotRepository = mascotRepository;
         }
-        
+
         // GET
         [HttpGet]
         public async Task<IActionResult> GetMascots()
@@ -25,7 +25,15 @@ namespace Funparty.Api.Controllers
             var mascots = await _mascotRepository.GetAllMascots();
             return Ok(mascots);
         }
-        
+
+        // GET
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetMascotById(int id)
+        {
+            var mascot = await _mascotRepository.GetMascotById(id);
+            return Ok(mascot);
+        }
+
         // POST
         [HttpPost("create")]
         public async Task<IActionResult> CreateMascot(Mascot mascot)
