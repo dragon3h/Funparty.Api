@@ -27,7 +27,7 @@ namespace Funparty.Api
             services.AddScoped<IMascotRepository, MascotRepository>();
             
             services.AddDbContext<FunpartyDbContext>(opt =>
-                opt.UseSqlServer(Configuration.GetConnectionString("Default")));
+                opt.UseSqlServer(Configuration.GetConnectionString("DefaultWin")));
             services.AddControllers();
             
             // add CORS

@@ -12,6 +12,6 @@ namespace Funparty.Api.Domain.Entities
         public decimal RentPrice { get; set; }
         public decimal SalePrice { get; set; }
         public DateTime? UpdatedDate { get; set; }
-        public ICollection<Photo> Photos { get; set; }
+        public ICollection<MascotPhoto> MascotPhotos { get; set; }
     }
 }
