@@ -1,4 +1,7 @@
+using System.Collections.Generic;
 using System.Threading.Tasks;
+using AutoMapper;
+using Funparty.Api.Application.Dtos;
 using Funparty.Api.Application.Interfaces;
 using Funparty.Api.Domain.Entities;
 using Funparty.Api.Persistence;
@@ -12,10 +15,12 @@ namespace Funparty.Api.Controllers
     public class MascotController : ControllerBase
     {
         private readonly IMascotRepository _mascotRepository;
+        private readonly IMapper _mapper;
 
-        public MascotController(IMascotRepository mascotRepository)
+        public MascotController(IMascotRepository mascotRepository, IMapper mapper)
         {
             _mascotRepository = mascotRepository;
+            _mapper = mapper;
         }
 
         // GET
@@ -23,7 +28,9 @@ namespace Funparty.Api.Controllers
         public async Task<IActionResult> GetMascots()
         {
             var mascots = await _mascotRepository.GetAllMascots();
-            return Ok(mascots);
+
+            var mascotsToReturn = _mapper.Map<IEnumerable<MascotDto>>(mascots);
+            return Ok(mascotsToReturn);
         }
 
         // GET

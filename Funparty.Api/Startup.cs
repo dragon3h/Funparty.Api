@@ -1,3 +1,4 @@
+using AutoMapper;
 using Funparty.Api.Application.Interfaces;
 using Funparty.Api.Persistence;
 using Funparty.Api.Persistence.Repositories;
@@ -36,6 +37,9 @@ namespace Funparty.Api
                 options.AddPolicy(FunpartyAllowSpecificOrigins,
                     builder => { builder.AllowAnyOrigin(); });
             });
+
+            // add Automapper
+            services.AddAutoMapper(typeof(MascotRepository).Assembly);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
