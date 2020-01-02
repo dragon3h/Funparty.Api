@@ -11,7 +11,7 @@ namespace Funparty.Api.Persistence
         {
             if (!context.Mascots.Any())
             {
-                var mascotsData = System.IO.File.ReadAllText("Persistence/MascotSeedData.json");
+                var mascotsData = System.IO.File.ReadAllText("Persistence/SeedData/MascotSeedData.json");
                 var mascots = JsonConvert.DeserializeObject<List<Mascot>>(mascotsData);
                 foreach (var mascot in mascots)
                 {

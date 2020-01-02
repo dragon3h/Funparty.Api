@@ -5,7 +5,7 @@
     "Name": "Levine",
     "RentPrice": 131.13,
     "SalePrice": 584.85,
-    "Photos": [
+    "MascotPhotos": [
       {
         "url": "https://randomuser.me/api/portraits/men36jpg",
         "isMain": true,
@@ -20,7 +20,7 @@
     "Name": "Anderson",
     "RentPrice": 132.10,
     "SalePrice": 629.10,
-    "Photos": [
+    "MascotPhotos": [
       {
         "url": "https://randomuser.me/api/portraits/men29jpg",
         "isMain": true,
@@ -35,7 +35,7 @@
     "Name": "Cheri",
     "RentPrice": 137.64,
     "SalePrice": 1527.24,
-    "Photos": [
+    "MascotPhotos": [
       {
         "url": "https://randomuser.me/api/portraits/men6jpg",
         "isMain": true,
@@ -50,7 +50,7 @@
     "Name": "Carroll",
     "RentPrice": 142.36,
     "SalePrice": 383.91,
-    "Photos": [
+    "MascotPhotos": [
       {
         "url": "https://randomuser.me/api/portraits/men78jpg",
         "isMain": true,
@@ -65,7 +65,7 @@
     "Name": "Christian",
     "RentPrice": 81.02,
     "SalePrice": 1750.34,
-    "Photos": [
+    "MascotPhotos": [
       {
         "url": "https://randomuser.me/api/portraits/men20jpg",
         "isMain": true,

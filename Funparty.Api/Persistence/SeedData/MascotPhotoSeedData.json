@@ -1,0 +1,32 @@
+[
+  {
+    "Url": "https://randomuser.me/api/portraits/men/9.jpg",
+    "IsMain": true,
+    "Name": "Rochelle",
+    "MascotId": 5
+  },
+  {
+    "Url": "https://randomuser.me/api/portraits/women/80.jpg",
+    "IsMain": true,
+    "Name": "Minnie",
+    "MascotId": 2
+  },
+  {
+    "Url": "https://randomuser.me/api/portraits/men/39.jpg",
+    "IsMain": false,
+    "Name": "Rachel",
+    "MascotId": 4
+  },
+  {
+    "Url": "https://randomuser.me/api/portraits/men/10.jpg",
+    "IsMain": false,
+    "Name": "Benjamin",
+    "MascotId": 3
+  },
+  {
+    "Url": "https://randomuser.me/api/portraits/women/35.jpg",
+    "IsMain": false,
+    "Name": "Kaitlin",
+    "MascotId": 1
+  }
+]

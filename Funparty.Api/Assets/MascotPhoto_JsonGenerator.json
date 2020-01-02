@@ -1,0 +1,11 @@
+[
+  {
+    "repeat(5)": {
+      "Url": function(num) {
+      return "https://randomuser.me/api/portraits/men/" + num.integer(1,99) + ".jpg";
+    },
+    "IsMain": "{{random(true, false)}}",
+    "Name": "{{firstName()}}",
+    "MascotId": "{{integer(1,5)}}"
+  }}
+]
