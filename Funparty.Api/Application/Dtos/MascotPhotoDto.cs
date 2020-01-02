@@ -1,12 +1,10 @@
-namespace Funparty.Api.Domain.Entities
+﻿namespace Funparty.Api.Application.Dtos
 {
-    public class Photo
+    public class MascotPhotoDto
     {
         public int Id { get; set; }
         public string Url { get; set; }
         public bool IsMain { get; set; }
         public string Name { get; set; }
-        public User User { get; set; }
-        public int UserId { get; set; }
     }
 }

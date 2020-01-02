@@ -13,5 +13,10 @@ namespace Funparty.Api.Domain.Entities
         public decimal SalePrice { get; set; }
         public DateTime? UpdatedDate { get; set; }
         public ICollection<MascotPhoto> MascotPhotos { get; set; }
+
+        public Mascot()
+        {
+            MascotPhotos = new List<MascotPhoto>();
+        }
     }
 }

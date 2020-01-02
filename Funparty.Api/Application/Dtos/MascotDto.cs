@@ -10,6 +10,11 @@ namespace Funparty.Api.Application.Dtos
         public string Name { get; set; }
         public decimal RentPrice { get; set; }
         public decimal SalePrice { get; set; }
-        public ICollection<MascotPhoto> MascotPhotos { get; set; }
+        public ICollection<MascotPhotoDto> MascotPhotos { get; set; }
+
+        public MascotDto()
+        {
+            MascotPhotos = new List<MascotPhotoDto>();
+        }
     }
 }

@@ -9,6 +9,7 @@ namespace Funparty.Api.Helpers
         public AutoMapperProfiles()
         {
             CreateMap<Mascot, MascotDto>();
+            CreateMap<MascotPhoto, MascotPhotoDto>();
         }
     }
 }

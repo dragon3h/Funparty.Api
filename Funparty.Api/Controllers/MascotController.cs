@@ -17,6 +17,12 @@ namespace Funparty.Api.Controllers
         private readonly IMascotRepository _mascotRepository;
         private readonly IMapper _mapper;
 
+        // for testing
+        //public MascotController(IMascotRepository mascotRepository)
+        //{
+        //    _mascotRepository = mascotRepository;
+        //}
+
         public MascotController(IMascotRepository mascotRepository, IMapper mapper)
         {
             _mascotRepository = mascotRepository;
