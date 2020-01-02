@@ -2,9 +2,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
+using Funparty.Api.Application.Dtos;
 using Funparty.Api.Application.Interfaces;
 using Funparty.Api.Controllers;
 using Funparty.Api.Domain.Entities;
+using Funparty.Api.Helpers;
 using Microsoft.AspNetCore.Mvc;
 using Moq;
 using Xunit;
@@ -17,16 +20,17 @@ namespace TestFunparty.Api
         public async Task GetMascots_ReturnAllMascots()
         {
             // Arrange
+            var config = new MapperConfiguration(cfg => cfg.AddProfile(new AutoMapperProfiles()));
             var mockRepo = new Mock<IMascotRepository>();
             mockRepo.Setup(repo => repo.GetAllMascots()).ReturnsAsync(GetMascots());
-            var controller = new MascotController(mockRepo.Object);
+            var controller = new MascotController(mockRepo.Object, config.CreateMapper());
             
             // Act
             var result = await controller.GetMascots();
             
             // Assert
             var okResult = Assert.IsType<OkObjectResult>(result);
-            var returnMascot = Assert.IsType<List<Mascot>>(okResult.Value);
+            var returnMascot = Assert.IsType<List<MascotDto>>(okResult.Value);
             var mascot = returnMascot.FirstOrDefault();
             Assert.Equal("Micky", mascot.Name);
         }

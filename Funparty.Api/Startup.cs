@@ -29,7 +29,9 @@ namespace Funparty.Api
             
             services.AddDbContext<FunpartyDbContext>(opt =>
                 opt.UseSqlServer(Configuration.GetConnectionString("DefaultWin")));
-            services.AddControllers();
+
+            // add NewtonsoftJson
+            services.AddControllers().AddNewtonsoftJson();
             
             // add CORS
             services.AddCors(options =>

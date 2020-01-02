@@ -1,8 +1,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Funparty.Api.Application.Interfaces;
-using Funparty.Api.Domain.Entities;
-using Microsoft.EntityFrameworkCore;
+using Funparty.Api.Domain.Entities;using Microsoft.EntityFrameworkCore;
 
 namespace Funparty.Api.Persistence.Repositories
 {
@@ -29,7 +28,7 @@ namespace Funparty.Api.Persistence.Repositories
 
         public async Task<Mascot> CreateMascot(Mascot mascot)
         {
-            var isExist = await _context.Mascots.AnyAsync();
+            var isExist = await MascotExist(mascot.Id);
             if (!isExist)
             {
                 await _context.AddAsync(mascot);
@@ -43,9 +42,11 @@ namespace Funparty.Api.Persistence.Repositories
             return mascot;
         }
 
-        public Task<bool> MascotExist(int id)
+        public async Task<bool> MascotExist(int id)
         {
-            throw new System.NotImplementedException();
+            var mascot = await _context.Mascots.FirstOrDefaultAsync(m => m.Id == id);
+
+            return mascot != null;
         }
 
         public Task<int> DeleteMascot(int id)

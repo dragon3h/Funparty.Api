@@ -17,12 +17,6 @@ namespace Funparty.Api.Controllers
         private readonly IMascotRepository _mascotRepository;
         private readonly IMapper _mapper;
 
-        // for testing
-        //public MascotController(IMascotRepository mascotRepository)
-        //{
-        //    _mascotRepository = mascotRepository;
-        //}
-
         public MascotController(IMascotRepository mascotRepository, IMapper mapper)
         {
             _mascotRepository = mascotRepository;
@@ -49,10 +43,13 @@ namespace Funparty.Api.Controllers
 
         // POST
         [HttpPost("create")]
-        public async Task<IActionResult> CreateMascot(Mascot mascot)
+        public async Task<IActionResult> CreateMascot(MascotDto mascot)
         {
-            var newMascot = await _mascotRepository.CreateMascot(mascot);
-            return Ok(newMascot);
+            var mascotToCreate = _mapper.Map<Mascot>(mascot);
+            var newMascot = await _mascotRepository.CreateMascot(mascotToCreate);
+            var createdMascot = _mapper.Map<MascotDto>(newMascot);
+
+            return Ok(createdMascot);
         }
     }
 }

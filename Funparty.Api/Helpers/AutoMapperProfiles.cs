@@ -10,6 +10,9 @@ namespace Funparty.Api.Helpers
         {
             CreateMap<Mascot, MascotDto>();
             CreateMap<MascotPhoto, MascotPhotoDto>();
+
+            CreateMap<MascotDto, Mascot>();
+            CreateMap<MascotPhotoDto, MascotPhoto>();
         }
     }
 }
