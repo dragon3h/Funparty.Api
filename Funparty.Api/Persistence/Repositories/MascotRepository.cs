@@ -1,5 +1,9 @@
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using AutoMapper;
+using Funparty.Api.Application.Common.Exceptions;
+using Funparty.Api.Application.Dtos;
 using Funparty.Api.Application.Interfaces;
 using Funparty.Api.Domain.Entities;using Microsoft.EntityFrameworkCore;
 
@@ -8,10 +12,12 @@ namespace Funparty.Api.Persistence.Repositories
     public class MascotRepository : IMascotRepository
     {
         private readonly FunpartyDbContext _context;
+        private readonly IMapper _mapper;
 
-        public MascotRepository(FunpartyDbContext context)
+        public MascotRepository(FunpartyDbContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
         
         public async Task<ICollection<Mascot>> GetAllMascots()
@@ -49,9 +55,40 @@ namespace Funparty.Api.Persistence.Repositories
             return mascot != null;
         }
 
-        public Task<int> DeleteMascot(int id)
+        public async Task<int> DeleteMascot(int id)
         {
-            throw new System.NotImplementedException();
+            var mascotToDelete = await GetMascotById(id);
+
+            if (mascotToDelete == null)
+            {
+                throw new NotFoundException(nameof(Mascot), id);
+            }
+
+            _context.Mascots.Remove(mascotToDelete);
+             await _context.SaveChangesAsync();
+
+            return id;
+        }
+
+        public async Task<Mascot> EditMascot(MascotDto mascot)
+        {
+            var mascotToEdit = await GetMascotById(mascot.Id);
+
+            if (mascotToEdit == null)
+            {
+                throw new NotFoundException(nameof(Mascot), mascot.Id);
+            }
+
+            mascotToEdit.Category = mascot.Category;
+            mascotToEdit.MascotPhotos = _mapper.Map<ICollection<MascotPhoto>>(mascot.MascotPhotos);
+            mascotToEdit.Name = mascot.Name;
+            mascotToEdit.RentPrice = mascot.RentPrice;
+            mascotToEdit.SalePrice = mascot.SalePrice;
+            mascotToEdit.UpdatedDate = new DateTime();
+
+            await _context.SaveChangesAsync();
+
+            return mascotToEdit;
         }
     }
 }

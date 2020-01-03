@@ -38,7 +38,8 @@ namespace Funparty.Api.Controllers
         public async Task<IActionResult> GetMascotById(int id)
         {
             var mascot = await _mascotRepository.GetMascotById(id);
-            return Ok(mascot);
+            var mascotToReturn = _mapper.Map<MascotDto>(mascot);
+            return Ok(mascotToReturn);
         }
 
         // POST
@@ -50,6 +51,25 @@ namespace Funparty.Api.Controllers
             var createdMascot = _mapper.Map<MascotDto>(newMascot);
 
             return Ok(createdMascot);
+        }
+
+        // PUT
+        [HttpPut("update")]
+        public async Task<IActionResult> EditMascot(MascotDto mascot)
+        {
+            var mascotToEdit = await _mascotRepository.EditMascot(mascot);
+            var mascotToReturn = _mapper.Map<MascotDto>(mascotToEdit);
+
+            return Ok(mascotToReturn);
+        }
+
+        // DELETE
+        [HttpDelete("delete")]
+        public async Task<IActionResult> DeleteMascot(MascotDto mascot)
+        {
+            var deletedId = await _mascotRepository.DeleteMascot(mascot.Id);
+
+            return Ok(deletedId);
         }
     }
 }
